@@ -1,46 +1,52 @@
 import java.util.Scanner;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Main {
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+    public static void main(String[] agrs){
+        System.out.println("это ветка main");
+    }
 
-        while (true) {
-            System.out.print("Enter operation (sin, cos, tan, log, ln, sqrt, quit): ");
-            String operation = scanner.nextLine();
 
-            if (operation.equals("quit")) {
-                break;
+    public class Calculator {
+
+        private static final List<String> history = new ArrayList<>();
+        public static void main(String[] args) {
+
+
+            Scanner scanner = new Scanner(System.in);
+
+            System.out.print("Enter first number: ");
+            double num1 = scanner.nextDouble();
+
+            System.out.print("Enter second number: ");
+            double num2 = scanner.nextDouble();
+
+            System.out.print("Enter operation (+, -, *, /): ");
+            String operation = scanner.next();
+
+            double result;
+
+            if (operation.equals("+")) {
+                result = num1 + num2;
+            }
+            else if (operation.equals("-")) {
+                result = num1 - num2;
+            }
+            else if (operation.equals("*")) {
+                result = num1 * num2;
+            }
+            else if (operation.equals("/")) {
+                result = num1 / num2;
+            }
+            else {
+                System.out.println("Unsupported operation!");
+                return;
             }
 
-            System.out.print("Enter number: ");
-            double number = scanner.nextDouble();
-
-            switch (operation) {
-                case "sin":
-                    System.out.println("Sin(" + number + ") = " + Math.sin(number));
-                    break;
-                case "cos":
-                    System.out.println("Cos(" + number + ") = " + Math.cos(number));
-                    break;
-                case "tan":
-                    System.out.println("Tan(" + number + ") = " + Math.tan(number));
-                    break;
-                case "log":
-                    System.out.println("Log(" + number + ") = " + Math.log10(number));
-                    break;
-                case "ln":
-                    System.out.println("Ln(" + number + ") = " + Math.log(number));
-                    break;
-                case "sqrt":
-                    System.out.println("Sqrt(" + number + ") = " + Math.sqrt(number));
-                    break;
-                default:
-                    System.out.println("Unknown operation");
-            }
-
-            scanner.nextLine(); // consume newline left in scanner after nextDouble()
+            System.out.println("Result: " + result);
         }
 
-        scanner.close();
+
     }
 }
