@@ -40,7 +40,7 @@ public class Main {
                 result = num1 / num2;
             }
             else {
-                System.out.println("Unsupported operation!");
+
                 return;
             }
 
